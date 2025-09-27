@@ -169,7 +169,8 @@ async def main():
     
     # Message handlers
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_messages))
-    application.add_handler(MessageHandler(filters.PHOTO | filters.VIDEO | filters.DOCUMENT, handle_media_messages))
+    # Fixed: Use filters.Document.ALL instead of filters.DOCUMENT
+    application.add_handler(MessageHandler(filters.PHOTO | filters.VIDEO | filters.Document.ALL, handle_media_messages))
     
     # Start the bot
     logger.info("Bot started successfully!")
