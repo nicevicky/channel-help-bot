@@ -1,4 +1,4 @@
-from telegram import Update, LabeledPrice
+from telegram import Update, LabeledPrice, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from database import db
 from utils.keyboards import *
@@ -101,7 +101,7 @@ Choose your payment method:
             )
             return
         
-                text = f"""
+        text = f"""
 {symbol} **{crypto_type} Payment**
 
 Amount: ${UPGRADE_PRICE_USD} worth of {crypto_type}
